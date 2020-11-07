@@ -9,13 +9,20 @@ import Foundation
 
 class Activity {
     
+    let other = Other()
+    
     init(description: String, subDescription: String) {
         self.description = description
         self.subDescription = subDescription
+        self.date = other.getDate()
     }
     
     var description = ""
     var subDescription = ""
     var time = 5
+    
+    var date = ""
+    var startTime = ""
+    var endTime = ""
     
 }

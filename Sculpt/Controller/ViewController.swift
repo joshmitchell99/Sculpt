@@ -51,6 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //MARK: - IF ACTIVITIES ARE PRESSED
+    
     @IBAction func activityPressed(_ sender: UIButton) {
         let activity = sender.titleLabel!.text!.lowercased()
         
@@ -73,76 +74,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    @IBAction func workPressed(_ sender: UIButton) {
-        
-        let alert = UIAlertController(title: "What exactly did you do?", message: "", preferredStyle: .alert)
-        
-        for subDes in K.work.subDescriptions {
-            alert.addAction(UIAlertAction(title: subDes, style: .default, handler: { (action) in
-                self.activities.append(Activity(description: "work", subDescription: subDes))
-                self.myTableView.reloadData()
-            }))
-        }
-        self.present(alert, animated: true, completion: nil)
-        
-        myTableView.reloadData()
-    }
-    
-    @IBAction func playPressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "What exactly did you do?", message: "", preferredStyle: .alert)
-        
-        for subDes in K.play.subDescriptions {
-            alert.addAction(UIAlertAction(title: subDes, style: .default, handler: { (action) in
-                self.activities.append(Activity(description: "play", subDescription: subDes))
-                self.myTableView.reloadData()
-            }))
-        }
-        self.present(alert, animated: true, completion: nil)
-        
-        myTableView.reloadData()
-    }
-    
-    @IBAction func exercisePressed(_ sender: UIButton) {
-        let alert = UIAlertController(title: "What exactly did you do?", message: "", preferredStyle: .alert)
-        
-        for subDes in K.exercise.subDescriptions {
-            alert.addAction(UIAlertAction(title: subDes, style: .default, handler: { (action) in
-                self.activities.append(Activity(description: "exercise", subDescription: subDes))
-                self.myTableView.reloadData()
-            }))
-        }
-        self.present(alert, animated: true, completion: nil)
-        
-        myTableView.reloadData()
-    }
-    
-    @IBAction func mealPressed(_ sender: UIButton) {
-        //activities.append(Activity(description: "meal"))
-        myTableView.reloadData()
-    }
-    
-    @IBAction func personalPressed(_ sender: UIButton) {
-        //activities.append(Activity(description: "personal"))
-        myTableView.reloadData()
-    }
-    
-    @IBAction func socialPressed(_ sender: UIButton) {
-        //activities.append(Activity(description: "social"))
-        myTableView.reloadData()
-    }
-    
-    @IBAction func otherPressed(_ sender: UIButton) {
-        //activities.append(Activity(description: "other"))
-        myTableView.reloadData()
-    }
     
     
-    
-    
-    
-    
-    
-    //MARK: - TABLE VIEW FUNCTIONS
+    //MARK: - ESSENtIAL TABLE VIEW FUNCTIONS
 
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -157,7 +91,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         var activity = activities[indexPath.row]
         
-        cell.textLabel!.text = activity.description + "(" + activity.subDescription + ")" + " for " + String(activity.time)
+        cell.textLabel!.text = activity.description + ": " + activity.subDescription + " for " + String(activity.time)
         cell.backgroundColor = cell.getColor(activity.description)
         //cell.layer.borderWidth = 1
         //cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -186,7 +120,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(activities[indexPath.row].time) * 2.5
+        return CGFloat(activities[indexPath.row].time) * 2.4
     }
 
     
@@ -194,6 +128,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //MARK: - REORDERING ROWS
+    
     func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -226,6 +161,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //MARK: - TIME LABELS
+    
     @IBOutlet weak var firstTime: UILabel!
     @IBOutlet weak var secondTime: UILabel!
     @IBOutlet weak var thirdTime: UILabel!
@@ -234,10 +170,41 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func setTimeLabels() {
         let hour = other.getCurrentHour()
         
-        firstTime.text = String(hour - 3)
-        secondTime.text = String(hour - 2)
-        thirdTime.text = String(hour - 1)
-        fourthTime.text = String(hour)
+        firstTime.text = String(hour.minus(3)) + " -"
+        secondTime.text = String(hour.minus(2)) + " -"
+        thirdTime.text = String(hour.minus(1)) + " -"
+        fourthTime.text = String(hour) + " -"
+    }
+    
+    
+    
+    
+    
+    
+    
+    //MARK: - SUBMIT BUTTON
+    @IBAction func submitPressed(_ sender: UIButton) {
+        var startTime = "0000"
+        var activitiesToAdd = [Activity]()
+        
+//        for activity in activities {
+//            if startTime == "0000" {
+//                startTime = String(other.getCurrentHour().minus(4))
+//            }
+//            let endTime = startTime.addMilitaryTime(activity.time)
+//
+//            activity.startTime = startTime
+//            activity.endTime = endTime
+//            activitiesToAdd.append(activity)
+//
+//            startTime = endTime
+//        }
+        
+        for activity in activitiesToAdd {
+            print(activity.description, activity.subDescription, activity.date, activity.time, activity.startTime, activity.endTime)
+        }
+        
+        other.addToFirestore(activities)
     }
     
     

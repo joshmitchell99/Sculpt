@@ -20,7 +20,6 @@ extension UITableViewCell {
 
 extension UITableViewCell {
     func getColor(_ description: String) -> UIColor {
-        print(description)
         switch description {
         case "work":
             return #colorLiteral(red: 0.01680417731, green: 0.1983509958, blue: 1, alpha: 1)
@@ -70,6 +69,31 @@ extension String {
             print("Error extensions.swift - you've added an activity but not put it in the String extension!")
             return ["ERROR"]
         }
+    }
+    
+    func addMilitaryTime(_ num: String) {
+        var num1 = self
+        var num2 = num
         
+        let minutes1 = 10*60*Int(num[0]) + 60*Int(num[1]) + 10*Int(num[2]) + Int(num[3])
+        let minutes2 = 10*60*Int(num[0]) + 60*Int(num[1]) + 10*Int(num[2]) + Int(num[3])
+        
+        let totalMinutes = minutes1 + minutes2
+        
+        var finalTime = "0000"
+        
+        finalTime[3] = totalMinutes/
+    }
+}
+
+extension Int {
+    
+    func minus(_ int: Int) -> Int {
+        var number = self
+        number -= int
+        if number < 0 {
+            return 24 + number
+        }
+        return number
     }
 }
