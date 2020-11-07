@@ -22,8 +22,8 @@ class Activity {
     var time = 30
     
     var date = ""
-    var startTime = -1
-    var endTime = -1
+    var startTime = ""
+    var endTime = ""
     
     var happiness = -1
     var energy = -1

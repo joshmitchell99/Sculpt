@@ -82,4 +82,11 @@ extension Int {
         }
         return number
     }
+    
+    func toDateString() -> String {
+        let number = self
+        let hours = number/60
+        let minutes = number%60
+        return String(format: "%02d:%02d", hours, minutes)
+    }
 }

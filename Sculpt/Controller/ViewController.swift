@@ -181,9 +181,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         for activity in activities {
-            activity.startTime = startTime
-            activity.endTime = startTime + activity.time
-            startTime = activity.endTime
+            activity.startTime = startTime.toDateString()
+            activity.endTime = (startTime + activity.time).toDateString()
+            startTime = startTime + activity.time
             print("Activity: ", activity.description, activity.subDescription, activity.date, activity.time, activity.startTime, activity.endTime)
         }
         
