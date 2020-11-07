@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct Other {
     
@@ -27,7 +28,7 @@ struct Other {
         let formatter = DateFormatter()
         formatter.isLenient = true
         formatter.timeStyle = .long
-        formatter.dateFormat = "dd/MM/yyyy"
+        formatter.dateFormat = "dd.MM.yyyy"
         
         let dateTimeString = formatter.string(from: currentDateTime)
         
@@ -48,10 +49,31 @@ struct Other {
         
     }
     
+    let db = Firestore.firestore()
+
     func addToFirestore(_ activities: [Activity]) {
+        print("Activities to be passed in: ", activities)
         for activity in activities {
-            let string = activity.description + activity.subDescription + activity.date + String(activity.time) + activity.startTime + activity.endTime
+            let string = activity.description + "," + activity.subDescription + "," + activity.date + "," + String(activity.time) + "," + String(activity.startTime) + "," + String(activity.endTime)
+            
+            db.collection("Josh").document(self.getRandomId(string: "LOG")).setData([
+                
+                "ActivityString" : string
+                
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Successfully uploaded data to Firestore!")
+                }
+            }
+
         }
+    }
+    
+    func getRandomId(string: String) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return string + String((0..<20).map{ _ in letters.randomElement()! })
     }
     
 }

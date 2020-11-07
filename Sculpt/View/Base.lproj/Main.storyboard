@@ -21,27 +21,46 @@
                                 <rect key="frame" x="37" y="134" width="322" height="451"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="IFN-bi-Lhd">
-                                    <rect key="frame" x="0.0" y="77" width="322" height="44"/>
+                                    <rect key="frame" x="0.0" y="99.5" width="322" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" textLabel="Qxj-hR-Siy" rowHeight="21" style="IBUITableViewCellStyleDefault" id="94C-4c-fdl" customClass="myCell" customModule="Sculpt" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="322" height="21"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="myCell" id="94C-4c-fdl" customClass="myCell" customModule="Sculpt" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="322" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="94C-4c-fdl" id="Q8x-TI-jGb" customClass="myCell" customModule="Sculpt" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="322" height="21"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="322" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qxj-hR-Siy">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2C9-G6-YBC">
                                                     <rect key="frame" x="16" y="0.0" width="290" height="21"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytM-aN-iWQ">
+                                                    <rect key="frame" x="222" y="6" width="100" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="enlargePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="k0Q-Aw-4Qu"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeV-gn-A6b">
+                                                    <rect key="frame" x="0.0" y="6" width="100" height="200"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="shrinkPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yrY-x6-Asx"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="enlargeButton" destination="ytM-aN-iWQ" id="C3l-Lu-O8l"/>
+                                            <outlet property="shrinkButton" destination="TeV-gn-A6b" id="xXC-X5-dTB"/>
+                                            <outlet property="textLabel" destination="2C9-G6-YBC" id="a8L-aM-f8z"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -270,6 +289,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="138.40000000000001" y="130.88455772113943"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="DZ6-qJ-KC5">
+            <objects>
+                <viewController id="jPC-uI-Eu5" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vBD-1V-pN8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="JTJ-va-lh0"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ggn-vV-3iK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="956" y="131"/>
         </scene>
     </scenes>
     <resources>

@@ -19,10 +19,14 @@ class Activity {
     
     var description = ""
     var subDescription = ""
-    var time = 5
+    var time = 30
     
     var date = ""
-    var startTime = ""
-    var endTime = ""
+    var startTime = -1
+    var endTime = -1
+    
+    var happiness = -1
+    var energy = -1
+    var productivity = -1
     
 }

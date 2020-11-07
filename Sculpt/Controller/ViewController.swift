@@ -9,13 +9,14 @@ import UIKit
 
 class myCell: UITableViewCell {
     
-    @IBOutlet weak var resizeLabel: UILabel!
+    @IBOutlet weak var enlargeButton: UIButton!
+    @IBOutlet weak var shrinkButton: UIButton!
     
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
     
-
+    
     @IBOutlet weak var myTableView: UITableView!
     
     var activities: [Activity] = []
@@ -76,8 +77,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    //MARK: - ESSENtIAL TABLE VIEW FUNCTIONS
-
+    //MARK: - ESSENTIAL TABLE VIEW FUNCTIONS
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -87,7 +88,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! myCell
         
         var activity = activities[indexPath.row]
         
@@ -97,6 +98,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cell.round(withRadius: 6)
         
+        if activity.happiness == -1 {
+            cell.layer.borderWidth = 1
+            cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        }
+        
         return cell
     }
     
@@ -104,25 +110,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    
-    
-    
-    //MARK: - CHANGING HEIGHT
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        if activities[indexPath.row].time == 60 {
-            activities[indexPath.row].time = 5
-        } else {
-            activities[indexPath.row].time += 5
-        }
-        myTableView.reloadData()
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(activities[indexPath.row].time) * 2.4
-    }
-
     
     
     
@@ -184,29 +171,71 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     //MARK: - SUBMIT BUTTON
     @IBAction func submitPressed(_ sender: UIButton) {
-        var startTime = "0000"
-        var activitiesToAdd = [Activity]()
         
-//        for activity in activities {
-//            if startTime == "0000" {
-//                startTime = String(other.getCurrentHour().minus(4))
-//            }
-//            let endTime = startTime.addMilitaryTime(activity.time)
-//
-//            activity.startTime = startTime
-//            activity.endTime = endTime
-//            activitiesToAdd.append(activity)
-//
-//            startTime = endTime
-//        }
+        let timeInterval: TimeInterval = -14400 // sets a time interval 4 hours before now.
+        let currentDateTime = Date(timeIntervalSinceNow: timeInterval)
+        let formatter = DateFormatter()
+        formatter.isLenient = true
+        formatter.dateFormat = "HH"
+        var startTime = Int(formatter.string(from: currentDateTime))! * 60
         
-        for activity in activitiesToAdd {
-            print(activity.description, activity.subDescription, activity.date, activity.time, activity.startTime, activity.endTime)
+        
+        for activity in activities {
+            activity.startTime = startTime
+            activity.endTime = startTime + activity.time
+            startTime = activity.endTime
+            print("Activity: ", activity.description, activity.subDescription, activity.date, activity.time, activity.startTime, activity.endTime)
         }
         
         other.addToFirestore(activities)
+        activities.removeAll()
     }
     
     
+    
+    
+    
+    
+    
+    //MARK: - CHANGING HEIGHT
+    
+    @IBAction func enlargePressed(_ sender: UIButton) {
+        var superview = sender.superview
+        while let view = superview, !(view is UITableViewCell) {
+            superview = view.superview
+        }
+        let cell = (superview as? UITableViewCell)!
+        let indexPath = myTableView.indexPath(for: cell)
+        activities[indexPath!.row].time += 5
+        myTableView.reloadData()
+    }
+    
+    @IBAction func shrinkPressed(_ sender: UIButton) {
+        var superview = sender.superview
+        while let view = superview, !(view is UITableViewCell) {
+            superview = view.superview
+        }
+        let cell = (superview as? UITableViewCell)!
+        let indexPath = myTableView.indexPath(for: cell)
+        if activities[indexPath!.row].time != 5 {
+            activities[indexPath!.row].time -= 5
+        }
+        myTableView.reloadData()
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        
+        
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(activities[indexPath.row].time) * 2.4
+    }
+    
+    
+    
+    
 }
-

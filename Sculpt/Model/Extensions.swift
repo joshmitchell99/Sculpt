@@ -70,20 +70,6 @@ extension String {
             return ["ERROR"]
         }
     }
-    
-    func addMilitaryTime(_ num: String) {
-        var num1 = self
-        var num2 = num
-        
-        let minutes1 = 10*60*Int(num[0]) + 60*Int(num[1]) + 10*Int(num[2]) + Int(num[3])
-        let minutes2 = 10*60*Int(num[0]) + 60*Int(num[1]) + 10*Int(num[2]) + Int(num[3])
-        
-        let totalMinutes = minutes1 + minutes2
-        
-        var finalTime = "0000"
-        
-        finalTime[3] = totalMinutes/
-    }
 }
 
 extension Int {
