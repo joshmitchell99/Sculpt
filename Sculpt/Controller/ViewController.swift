@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import WatchConnectivity
 
 class myCell: UITableViewCell {
     
@@ -14,7 +15,7 @@ class myCell: UITableViewCell {
     
 }
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITableViewDragDelegate, UITableViewDropDelegate, WCSessionDelegate {
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -42,6 +43,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.dropDelegate = self
         
         setTimeLabels()
+        
+        //Ensure WatchConnectivity is supported
+        if (WCSession.isSupported()) {
+            let session = WCSession.default
+            session.delegate = self
+            session.activate()
+        }
     }
     
     
@@ -188,7 +196,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         
         other.addToFirestore(activities)
+        
+        let alert = UIAlertController(title: "Data added!", message: "Cheers!", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Great!", style: .default, handler: { (action) in
+            
+        }))
+        self.present(alert, animated: true, completion: nil)
+        
         activities.removeAll()
+        myTableView.reloadData()
     }
     
     
@@ -227,12 +243,49 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        
-        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return CGFloat(activities[indexPath.row].time) * 2.4
+    }
+    
+    
+    
+    
+    
+    
+    //MARK: - WATCHCONNECTIVITY
+    var session: WCSession?
+    
+    func session(_ session: WCSession, activationDidCompleteWith activationState: WCSessionActivationState, error: Error?) {
+        switch activationState {
+        case .activated:
+            print("Watch WCSession Activated!!")
+        case .notActivated:
+            print("Watch WCSession Not Activated!!")
+        case .inactive:
+            print("Watch WCSession Inactive!!")
+        }
+    }
+    func sessionDidBecomeInactive(_ session: WCSession) {
+        print("Session went inactive")
+    }
+    func sessionDidDeactivate(_ session: WCSession) {
+        print("Session deactivated")
+    }
+    
+    func session(_ session: WCSession, didReceiveMessage message: [String : Any]) {
+        print("received message: \(message)")
+        DispatchQueue.main.async { //6
+            if let watchData = message["watchData"] as? String {
+                self.other.addWatchDataToFirestore(watchData)
+            }
+            
+            if let event = message["event"] as? String {
+                self.other.addEventToFirestore(event)
+            }
+        }
+        
     }
     
     

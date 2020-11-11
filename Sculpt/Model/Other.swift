@@ -49,14 +49,19 @@ struct Other {
         
     }
     
+    func getRandomId(string: String) -> String {
+        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        return string + String((0..<20).map{ _ in letters.randomElement()! })
+    }
+    
     let db = Firestore.firestore()
-
+    
     func addToFirestore(_ activities: [Activity]) {
         print("Activities to be passed in: ", activities)
         for activity in activities {
             let string = activity.description + "," + activity.subDescription + "," + activity.date + "," + String(activity.time) + "," + String(activity.startTime) + "," + String(activity.endTime)
             
-            db.collection("Josh").document(self.getRandomId(string: "LOG")).setData([
+            db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "LOG")).setData([
                 
                 "ActivityString" : string
                 
@@ -67,13 +72,43 @@ struct Other {
                     print("Successfully uploaded data to Firestore!")
                 }
             }
-
+            
         }
     }
     
-    func getRandomId(string: String) -> String {
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return string + String((0..<20).map{ _ in letters.randomElement()! })
+    func addWatchDataToFirestore(_ data: String) {
+        
+        print("Watch data to be passed in: ", data)
+        
+        db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "WATCH")).setData([
+            
+            "WatchData" : data
+            
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Successfully uploaded data to Firestore!")
+            }
+        }
+    }
+    
+    func addEventToFirestore(_ data: String) {
+        
+        print("Event to be passed in: ", data)
+        
+        db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "EVENT")).setData([
+            
+            "Event" : data
+            
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Successfully uploaded data to Firestore!")
+            }
+        }
+        
     }
     
 }

@@ -4,10 +4,45 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Sculpt 1.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>23</integer>
+		</dict>
 		<key>Sculpt.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>19</integer>
+		</dict>
+		<key>SculptWatchApp (Complication).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>22</integer>
+		</dict>
+		<key>SculptWatchApp (Notification).xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
+		</dict>
+		<key>SculptWatchApp.xcscheme_^#shared#^_</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>20</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>2925FF982558CBDD00E64E38</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29B8D93925536FC300A2D9AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>
