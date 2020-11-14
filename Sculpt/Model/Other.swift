@@ -41,13 +41,22 @@ struct Other {
         
         let formatter = DateFormatter()
         formatter.isLenient = true
-        formatter.dateFormat = "HHmm"
+        formatter.dateFormat = "HH:mm"
         
         let dateTimeInt = Int(formatter.string(from: currentDateTime))
         
         return dateTimeInt!
         
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    //MARK: - ADDING TO FIRESTORE
     
     func getRandomId(string: String) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
@@ -61,7 +70,7 @@ struct Other {
         for activity in activities {
             let string = activity.description + "," + activity.subDescription + "," + activity.date + "," + String(activity.time) + "," + String(activity.startTime) + "," + String(activity.endTime)
             
-            db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "LOG")).setData([
+            db.collection("Users").document("Josh").collection(self.getDate()).document(self.getRandomId(string: "LOG")).setData([
                 
                 "ActivityString" : string
                 
@@ -80,7 +89,7 @@ struct Other {
         
         print("Watch data to be passed in: ", data)
         
-        db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "WATCH")).setData([
+        db.collection("Users").document("Josh").collection(self.getDate()).document((self.getRandomId(string: "WATCH"))).setData([
             
             "WatchData" : data
             
@@ -97,7 +106,7 @@ struct Other {
         
         print("Event to be passed in: ", data)
         
-        db.collection("Users").document("Josh").collection("Logs").document(self.getRandomId(string: "EVENT")).setData([
+        db.collection("Users").document("Josh").collection(self.getDate()).document(self.getRandomId(string: "EVENT")).setData([
             
             "Event" : data
             
@@ -108,7 +117,36 @@ struct Other {
                 print("Successfully uploaded data to Firestore!")
             }
         }
+    }
+    
+    func addMorningToFirestore(_ data: String) {
         
+        db.collection("Users").document("Josh").collection(self.getDate()).document(self.getRandomId(string: "MORNING")).setData([
+            
+            "MorningString" : data
+            
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Successfully uploaded data to Firestore!")
+            }
+        }
+    }
+    
+    func addEveningToFirestore(_ data: String) {
+        
+        db.collection("Users").document("Josh").collection(self.getDate()).document(self.getRandomId(string: "EVENING")).setData([
+            
+            "EveningString" : data
+            
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Successfully uploaded data to Firestore!")
+            }
+        }
     }
     
 }

@@ -25,8 +25,4 @@ class Activity {
     var startTime = ""
     var endTime = ""
     
-    var happiness = -1
-    var energy = -1
-    var productivity = -1
-    
 }

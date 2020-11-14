@@ -13,7 +13,6 @@ class ProductivityController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         // Configure interface objects here.
-        print("2V.happinessLevel = ", V.happinessLevel)
     }
     
     override func willActivate() {

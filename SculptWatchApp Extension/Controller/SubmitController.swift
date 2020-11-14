@@ -1,8 +1,8 @@
 //
-//  EventController.swift
+//  SubmitController.swift
 //  SculptWatchApp Extension
 //
-//  Created by Josh Mitchell on 11/10/20.
+//  Created by Josh Mitchell on 11/8/20.
 //
 
 import WatchKit
@@ -10,7 +10,7 @@ import Foundation
 import WatchConnectivity
 
 
-class EventController: WKInterfaceController, WCSessionDelegate {
+class SubmitController: WKInterfaceController, WCSessionDelegate {
     
     let other = Other()
     
@@ -32,73 +32,14 @@ class EventController: WKInterfaceController, WCSessionDelegate {
     
     
     
-    
-    
-    
-    @IBAction func waterPressed() {
-        sendData("water")
-    }
-    
-    @IBAction func mealPressed() {
-        sendData("meal")
-    }
-    
-    @IBAction func sugarPressed() {
-        sendData("sugar")
-    }
-    
-    @IBAction func alcoholPressed() {
-        sendData("alcohol")
-    }
-    
-    @IBAction func exercisePressed() {
-        sendData("exercise")
-    }
-    
-    @IBAction func sexPressed() {
-        sendData("sex")
-    }
-    
-    @IBAction func shortMedPressed() {
-        sendData("shortMed")
-    }
-    
-    @IBAction func longMedPressed() {
-        sendData("longMed")
-    }
-    
-    @IBAction func joPressed() {
-        sendData("jo")
-    }
-    
-    @IBAction func napPressed() {
-        sendData("nap")
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    func sendData(_ eventName: String) {
-                
-        let dataToSend = String(other.getDate()) + "-" + other.getTimeString() + " " + eventName
-        let data: [String: Any] = ["event": dataToSend as Any]
+    @IBAction func submitPressed() {
+        
+        let dataToSend = String(other.getDate()) + "-" + other.getTimeString() + " h" + String(V.happinessLevel) + "p" + String(V.productivityLevel) + "e" + String(V.energyLevel)
+        let data: [String: Any] = ["watchData": dataToSend as Any]
         session.sendMessage(data, replyHandler: nil, errorHandler: nil)
         
         pushController(withName: "InitialPage", context: nil)
-        
     }
-    
-    
-    
-    
-    
-    
-    
-    
     
     //MARK: - WATCHCONNECTIVITY
     let session = WCSession.default
@@ -113,5 +54,4 @@ class EventController: WKInterfaceController, WCSessionDelegate {
             print("Watch WCSession Inactive!!")
         }
     }
-    
 }

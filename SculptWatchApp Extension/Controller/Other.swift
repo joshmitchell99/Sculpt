@@ -36,4 +36,21 @@ struct Other {
         
     }
     
+    func getTimeString() -> String {
+        
+        let currentDateTime = Date()
+        
+        let formatter = DateFormatter()
+        formatter.isLenient = true
+        formatter.dateFormat = "HH"
+        let hours = Int(formatter.string(from: currentDateTime))!
+        formatter.dateFormat = "mm"
+        let minutes = Int(formatter.string(from: currentDateTime))!
+        print("HourString = ", hours, minutes)
+        
+        print("GGGG", String(format: "%02d:%02d", hours, minutes))
+        return String(format: "%02d:%02d", hours, minutes)
+        
+    }
+    
 }

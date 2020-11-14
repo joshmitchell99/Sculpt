@@ -13,8 +13,6 @@ class HappinessController: WKInterfaceController {
     
     override func awake(withContext context: Any?) {
         // Configure interface objects here.
-        print("1V.happinessLevel = ", V.happinessLevel)
-        V.happinessLevel = 3
     }
     
     override func willActivate() {
@@ -28,7 +26,6 @@ class HappinessController: WKInterfaceController {
     
     
     @IBAction func tenPressed() {
-        print("happiness level set to 10")
         V.happinessLevel = 10
         pushController(withName: "ProductivityController", context: nil)
     }

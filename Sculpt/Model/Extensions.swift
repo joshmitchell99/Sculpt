@@ -87,6 +87,7 @@ extension Int {
         let number = self
         let hours = number/60
         let minutes = number%60
+        print("SSTRRRING!! = :", String(format: "%02d:%02d", hours, minutes))
         return String(format: "%02d:%02d", hours, minutes)
     }
 }

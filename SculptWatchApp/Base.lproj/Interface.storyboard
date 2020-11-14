@@ -382,7 +382,7 @@
                         <button width="1" alignment="left" title="Start Again" id="kIo-PW-xIr">
                             <color key="backgroundColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <segue destination="AgC-eL-Hgc" kind="push" id="azo-2S-mOx"/>
+                                <segue destination="bvf-64-4Aa" kind="push" id="RkJ-r4-2s9"/>
                             </connections>
                         </button>
                     </items>
@@ -426,6 +426,5 @@
         <segue reference="TmO-MQ-U5u"/>
         <segue reference="o5a-xC-gON"/>
         <segue reference="dHj-kQ-FeP"/>
-        <segue reference="7Ot-S0-OSZ"/>
     </inferredMetricsTieBreakers>
 </document>

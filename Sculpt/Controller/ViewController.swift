@@ -106,11 +106,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         //cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         cell.round(withRadius: 6)
         
-        if activity.happiness == -1 {
-            cell.layer.borderWidth = 1
-            cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        }
-        
         return cell
     }
     
@@ -192,7 +187,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             activity.startTime = startTime.toDateString()
             activity.endTime = (startTime + activity.time).toDateString()
             startTime = startTime + activity.time
-            print("Activity: ", activity.description, activity.subDescription, activity.date, activity.time, activity.startTime, activity.endTime)
         }
         
         other.addToFirestore(activities)
