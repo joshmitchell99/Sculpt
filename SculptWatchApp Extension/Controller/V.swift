@@ -10,7 +10,7 @@ import Foundation
 struct V {
     
     static var happinessLevel = -1
-    static var productivityLevel = -1
+    static var anxietyLevel = -1
     static var energyLevel = -1
     
 }

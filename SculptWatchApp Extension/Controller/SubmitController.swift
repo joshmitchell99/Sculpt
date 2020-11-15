@@ -34,7 +34,7 @@ class SubmitController: WKInterfaceController, WCSessionDelegate {
     
     @IBAction func submitPressed() {
         
-        let dataToSend = String(other.getDate()) + "-" + other.getTimeString() + " h" + String(V.happinessLevel) + "p" + String(V.productivityLevel) + "e" + String(V.energyLevel)
+        let dataToSend = String(other.getDate()) + "-" + other.getTimeString() + " h" + String(V.happinessLevel) + "a" + String(V.anxietyLevel) + "e" + String(V.energyLevel)
         let data: [String: Any] = ["watchData": dataToSend as Any]
         session.sendMessage(data, replyHandler: nil, errorHandler: nil)
         

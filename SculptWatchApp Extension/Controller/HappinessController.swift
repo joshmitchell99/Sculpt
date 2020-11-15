@@ -27,43 +27,43 @@ class HappinessController: WKInterfaceController {
     
     @IBAction func tenPressed() {
         V.happinessLevel = 10
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func ninePressed() {
         V.happinessLevel = 9
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func eightPressed() {
         V.happinessLevel = 8
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func sevenPressed() {
         V.happinessLevel = 7
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func sixPressed() {
         V.happinessLevel = 6
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func fivePressed() {
         V.happinessLevel = 5
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func fourPressed() {
         V.happinessLevel = 4
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func threePressed() {
         V.happinessLevel = 3
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func twoPressed() {
         V.happinessLevel = 2
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     @IBAction func onePressed() {
         V.happinessLevel = 1
-        pushController(withName: "ProductivityController", context: nil)
+        pushController(withName: "AnxietyController", context: nil)
     }
     
     
