@@ -19,6 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBOutlet weak var myTableView: UITableView!
+    @IBOutlet weak var myScrollView: UIScrollView!
     
     var activities: [Activity] = []
     let other = Other()
@@ -41,15 +42,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.dragInteractionEnabled = true
         myTableView.dragDelegate = self
         myTableView.dropDelegate = self
-        
-        setTimeLabels()
-        
+                
         //Ensure WatchConnectivity is supported
         if (WCSession.isSupported()) {
             let session = WCSession.default
             session.delegate = self
             session.activate()
         }
+        
     }
     
     
@@ -151,21 +151,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     //MARK: - TIME LABELS
-    
-    @IBOutlet weak var firstTime: UILabel!
-    @IBOutlet weak var secondTime: UILabel!
-    @IBOutlet weak var thirdTime: UILabel!
-    @IBOutlet weak var fourthTime: UILabel!
-    
-    func setTimeLabels() {
-        let hour = other.getCurrentHour()
-        
-        firstTime.text = String(hour.minus(3)) + " -"
-        secondTime.text = String(hour.minus(2)) + " -"
-        thirdTime.text = String(hour.minus(1)) + " -"
-        fourthTime.text = String(hour) + " -"
-    }
-    
     
     
     
