@@ -14,21 +14,6 @@
 		2925FF79255723E900E64E38 /* PublicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FF78255723E800E64E38 /* PublicExtensions.swift */; };
 		2925FF7C25572A2B00E64E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925FF7B25572A2B00E64E38 /* GoogleService-Info.plist */; };
 		2925FF93255737F400E64E38 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FF92255737F300E64E38 /* Event.swift */; };
-		2925FF9D2558CBDD00E64E38 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2925FF9B2558CBDD00E64E38 /* Interface.storyboard */; };
-		2925FF9F2558CBDE00E64E38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2925FF9E2558CBDE00E64E38 /* Assets.xcassets */; };
-		2925FFA62558CBDF00E64E38 /* SculptWatchApp Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2925FFA52558CBDF00E64E38 /* SculptWatchApp Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2925FFAB2558CBDF00E64E38 /* HappinessController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFAA2558CBDF00E64E38 /* HappinessController.swift */; };
-		2925FFAD2558CBDF00E64E38 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFAC2558CBDF00E64E38 /* ExtensionDelegate.swift */; };
-		2925FFAF2558CBDF00E64E38 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFAE2558CBDF00E64E38 /* NotificationController.swift */; };
-		2925FFB12558CBDF00E64E38 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFB02558CBDF00E64E38 /* ComplicationController.swift */; };
-		2925FFB32558CBDF00E64E38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2925FFB22558CBDF00E64E38 /* Assets.xcassets */; };
-		2925FFB82558CBE000E64E38 /* SculptWatchApp.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2925FF992558CBDD00E64E38 /* SculptWatchApp.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2925FFE325590A6700E64E38 /* AnxietyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFE225590A6700E64E38 /* AnxietyController.swift */; };
-		2925FFE825590C9100E64E38 /* EnergyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFE725590C9100E64E38 /* EnergyController.swift */; };
-		2925FFED25590D2400E64E38 /* SubmitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFEC25590D2400E64E38 /* SubmitController.swift */; };
-		2925FFF72559104000E64E38 /* V.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FFDD255909C200E64E38 /* V.swift */; };
-		297B7EF0255B6B5700CDEB8D /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7EEF255B6B5700CDEB8D /* Other.swift */; };
-		297B7EF8255B6F8F00CDEB8D /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7EF7255B6F8F00CDEB8D /* EventController.swift */; };
 		297B7F06255F56B600CDEB8D /* MorningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7F05255F56B600CDEB8D /* MorningController.swift */; };
 		297B7F0B255F5F0A00CDEB8D /* EveningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7F0A255F5F0A00CDEB8D /* EveningController.swift */; };
 		29B8D93E25536FC300A2D9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B8D93D25536FC300A2D9AE /* AppDelegate.swift */; };
@@ -40,42 +25,13 @@
 		5BD21CDC77DB16C0BED63028 /* Pods_Sculpt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A58B6A7527744BCDBE84F592 /* Pods_Sculpt.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2925FFA72558CBDF00E64E38 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B8D93225536FC300A2D9AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2925FFA42558CBDF00E64E38;
-			remoteInfo = "SculptWatchApp Extension";
-		};
-		2925FFB62558CBE000E64E38 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B8D93225536FC300A2D9AE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2925FF982558CBDD00E64E38;
-			remoteInfo = SculptWatchApp;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		2925FFBC2558CBE000E64E38 /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				2925FFA62558CBDF00E64E38 /* SculptWatchApp Extension.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2925FFC02558CBE000E64E38 /* Embed Watch Content */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
 			dstSubfolderSpec = 16;
 			files = (
-				2925FFB82558CBE000E64E38 /* SculptWatchApp.app in Embed Watch Content */,
 			);
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -91,24 +47,7 @@
 		2925FF78255723E800E64E38 /* PublicExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicExtensions.swift; sourceTree = "<group>"; };
 		2925FF7B25572A2B00E64E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2925FF92255737F300E64E38 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
-		2925FF992558CBDD00E64E38 /* SculptWatchApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SculptWatchApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		2925FF9C2558CBDD00E64E38 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
-		2925FF9E2558CBDE00E64E38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2925FFA02558CBDE00E64E38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2925FFA52558CBDF00E64E38 /* SculptWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SculptWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2925FFAA2558CBDF00E64E38 /* HappinessController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HappinessController.swift; sourceTree = "<group>"; };
-		2925FFAC2558CBDF00E64E38 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		2925FFAE2558CBDF00E64E38 /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
-		2925FFB02558CBDF00E64E38 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
-		2925FFB22558CBDF00E64E38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		2925FFB42558CBDF00E64E38 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2925FFB52558CBDF00E64E38 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
-		2925FFDD255909C200E64E38 /* V.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V.swift; sourceTree = "<group>"; };
-		2925FFE225590A6700E64E38 /* AnxietyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnxietyController.swift; sourceTree = "<group>"; };
-		2925FFE725590C9100E64E38 /* EnergyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyController.swift; sourceTree = "<group>"; };
-		2925FFEC25590D2400E64E38 /* SubmitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitController.swift; sourceTree = "<group>"; };
-		297B7EEF255B6B5700CDEB8D /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
-		297B7EF7255B6F8F00CDEB8D /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		297B7F05255F56B600CDEB8D /* MorningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningController.swift; sourceTree = "<group>"; };
 		297B7F0A255F5F0A00CDEB8D /* EveningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningController.swift; sourceTree = "<group>"; };
 		29B8D93A25536FC300A2D9AE /* Sculpt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sculpt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -150,58 +89,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2925FF9A2558CBDD00E64E38 /* SculptWatchApp */ = {
-			isa = PBXGroup;
-			children = (
-				2925FF9B2558CBDD00E64E38 /* Interface.storyboard */,
-				2925FF9E2558CBDE00E64E38 /* Assets.xcassets */,
-				2925FFA02558CBDE00E64E38 /* Info.plist */,
-			);
-			path = SculptWatchApp;
-			sourceTree = "<group>";
-		};
-		2925FFA92558CBDF00E64E38 /* SculptWatchApp Extension */ = {
-			isa = PBXGroup;
-			children = (
-				2925FFCA2558D78000E64E38 /* Model */,
-				2925FFCB2558D79100E64E38 /* Controller */,
-				2925FFAC2558CBDF00E64E38 /* ExtensionDelegate.swift */,
-				2925FFAE2558CBDF00E64E38 /* NotificationController.swift */,
-				2925FFB02558CBDF00E64E38 /* ComplicationController.swift */,
-				2925FFB22558CBDF00E64E38 /* Assets.xcassets */,
-				2925FFB42558CBDF00E64E38 /* Info.plist */,
-				2925FFB52558CBDF00E64E38 /* PushNotificationPayload.apns */,
-			);
-			path = "SculptWatchApp Extension";
-			sourceTree = "<group>";
-		};
-		2925FFCA2558D78000E64E38 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		2925FFCB2558D79100E64E38 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				297B7EEF255B6B5700CDEB8D /* Other.swift */,
-				2925FFDD255909C200E64E38 /* V.swift */,
-				2925FFAA2558CBDF00E64E38 /* HappinessController.swift */,
-				2925FFE225590A6700E64E38 /* AnxietyController.swift */,
-				2925FFE725590C9100E64E38 /* EnergyController.swift */,
-				2925FFEC25590D2400E64E38 /* SubmitController.swift */,
-				297B7EF7255B6F8F00CDEB8D /* EventController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
 		29B8D93125536FC300A2D9AE = {
 			isa = PBXGroup;
 			children = (
 				29B8D93C25536FC300A2D9AE /* Sculpt */,
-				2925FF9A2558CBDD00E64E38 /* SculptWatchApp */,
-				2925FFA92558CBDF00E64E38 /* SculptWatchApp Extension */,
 				29B8D93B25536FC300A2D9AE /* Products */,
 				8B29C685AF07319F2210EB21 /* Pods */,
 				0C96CCE244FA28DAF768EF37 /* Frameworks */,
@@ -212,7 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				29B8D93A25536FC300A2D9AE /* Sculpt.app */,
-				2925FF992558CBDD00E64E38 /* SculptWatchApp.app */,
 				2925FFA52558CBDF00E64E38 /* SculptWatchApp Extension.appex */,
 			);
 			name = Products;
@@ -277,23 +167,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2925FF982558CBDD00E64E38 /* SculptWatchApp */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2925FFBD2558CBE000E64E38 /* Build configuration list for PBXNativeTarget "SculptWatchApp" */;
-			buildPhases = (
-				2925FF972558CBDD00E64E38 /* Resources */,
-				2925FFBC2558CBE000E64E38 /* Embed App Extensions */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2925FFA82558CBDF00E64E38 /* PBXTargetDependency */,
-			);
-			name = SculptWatchApp;
-			productName = SculptWatchApp;
-			productReference = 2925FF992558CBDD00E64E38 /* SculptWatchApp.app */;
-			productType = "com.apple.product-type.application.watchapp2";
-		};
 		2925FFA42558CBDF00E64E38 /* SculptWatchApp Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2925FFB92558CBE000E64E38 /* Build configuration list for PBXNativeTarget "SculptWatchApp Extension" */;
@@ -325,7 +198,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2925FFB72558CBE000E64E38 /* PBXTargetDependency */,
 			);
 			name = Sculpt;
 			productName = Sculpt;
@@ -341,9 +213,6 @@
 				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					2925FF982558CBDD00E64E38 = {
-						CreatedOnToolsVersion = 12.0.1;
-					};
 					2925FFA42558CBDF00E64E38 = {
 						CreatedOnToolsVersion = 12.0.1;
 					};
@@ -366,27 +235,16 @@
 			projectRoot = "";
 			targets = (
 				29B8D93925536FC300A2D9AE /* Sculpt */,
-				2925FF982558CBDD00E64E38 /* SculptWatchApp */,
 				2925FFA42558CBDF00E64E38 /* SculptWatchApp Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2925FF972558CBDD00E64E38 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2925FF9F2558CBDE00E64E38 /* Assets.xcassets in Resources */,
-				2925FF9D2558CBDD00E64E38 /* Interface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		2925FFA32558CBDF00E64E38 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2925FFB32558CBDF00E64E38 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,16 +308,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2925FFF72559104000E64E38 /* V.swift in Sources */,
-				2925FFAF2558CBDF00E64E38 /* NotificationController.swift in Sources */,
-				297B7EF8255B6F8F00CDEB8D /* EventController.swift in Sources */,
-				2925FFED25590D2400E64E38 /* SubmitController.swift in Sources */,
-				2925FFB12558CBDF00E64E38 /* ComplicationController.swift in Sources */,
-				2925FFE325590A6700E64E38 /* AnxietyController.swift in Sources */,
-				2925FFAD2558CBDF00E64E38 /* ExtensionDelegate.swift in Sources */,
-				297B7EF0255B6B5700CDEB8D /* Other.swift in Sources */,
-				2925FFAB2558CBDF00E64E38 /* HappinessController.swift in Sources */,
-				2925FFE825590C9100E64E38 /* EnergyController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,28 +331,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2925FFA82558CBDF00E64E38 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2925FFA42558CBDF00E64E38 /* SculptWatchApp Extension */;
-			targetProxy = 2925FFA72558CBDF00E64E38 /* PBXContainerItemProxy */;
-		};
-		2925FFB72558CBE000E64E38 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2925FF982558CBDD00E64E38 /* SculptWatchApp */;
-			targetProxy = 2925FFB62558CBE000E64E38 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		2925FF9B2558CBDD00E64E38 /* Interface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2925FF9C2558CBDD00E64E38 /* Base */,
-			);
-			name = Interface.storyboard;
-			sourceTree = "<group>";
-		};
 		29B8D94325536FC300A2D9AE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -560,46 +387,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = avaford19.Sculpt.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Release;
-		};
-		2925FFBE2558CBE000E64E38 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Q9YK3MTQ6;
-				IBSC_MODULE = SculptWatchApp_Extension;
-				INFOPLIST_FILE = SculptWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = avaford19.Sculpt.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 4;
-				WATCHOS_DEPLOYMENT_TARGET = 7.0;
-			};
-			name = Debug;
-		};
-		2925FFBF2558CBE000E64E38 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 5Q9YK3MTQ6;
-				IBSC_MODULE = SculptWatchApp_Extension;
-				INFOPLIST_FILE = SculptWatchApp/Info.plist;
-				PRODUCT_BUNDLE_IDENTIFIER = avaford19.Sculpt.watchkitapp;
-				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
@@ -772,15 +559,6 @@
 			buildConfigurations = (
 				2925FFBA2558CBE000E64E38 /* Debug */,
 				2925FFBB2558CBE000E64E38 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2925FFBD2558CBE000E64E38 /* Build configuration list for PBXNativeTarget "SculptWatchApp" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2925FFBE2558CBE000E64E38 /* Debug */,
-				2925FFBF2558CBE000E64E38 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
