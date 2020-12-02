@@ -14,6 +14,8 @@
 		2925FF79255723E900E64E38 /* PublicExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FF78255723E800E64E38 /* PublicExtensions.swift */; };
 		2925FF7C25572A2B00E64E38 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2925FF7B25572A2B00E64E38 /* GoogleService-Info.plist */; };
 		2925FF93255737F400E64E38 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2925FF92255737F300E64E38 /* Event.swift */; };
+		296366B32577472D006AEFB1 /* AdditionalInfoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296366B22577472D006AEFB1 /* AdditionalInfoController.swift */; };
+		296366B725775805006AEFB1 /* V.swift in Sources */ = {isa = PBXBuildFile; fileRef = 296366B625775805006AEFB1 /* V.swift */; };
 		297B7F06255F56B600CDEB8D /* MorningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7F05255F56B600CDEB8D /* MorningController.swift */; };
 		297B7F0B255F5F0A00CDEB8D /* EveningController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 297B7F0A255F5F0A00CDEB8D /* EveningController.swift */; };
 		29B8D93E25536FC300A2D9AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29B8D93D25536FC300A2D9AE /* AppDelegate.swift */; };
@@ -48,6 +50,8 @@
 		2925FF7B25572A2B00E64E38 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2925FF92255737F300E64E38 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		2925FFA52558CBDF00E64E38 /* SculptWatchApp Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "SculptWatchApp Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		296366B22577472D006AEFB1 /* AdditionalInfoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoController.swift; sourceTree = "<group>"; };
+		296366B625775805006AEFB1 /* V.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = V.swift; sourceTree = "<group>"; };
 		297B7F05255F56B600CDEB8D /* MorningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningController.swift; sourceTree = "<group>"; };
 		297B7F0A255F5F0A00CDEB8D /* EveningController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EveningController.swift; sourceTree = "<group>"; };
 		29B8D93A25536FC300A2D9AE /* Sculpt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sculpt.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,6 +135,7 @@
 				2925FF92255737F300E64E38 /* Event.swift */,
 				2925FF5D2553C36200E64E38 /* Extensions.swift */,
 				2925FF6E25562D5F00E64E38 /* Other.swift */,
+				296366B625775805006AEFB1 /* V.swift */,
 				2925FF712556397E00E64E38 /* K.swift */,
 				2925FF78255723E800E64E38 /* PublicExtensions.swift */,
 			);
@@ -151,6 +156,7 @@
 				29B8D94125536FC300A2D9AE /* ViewController.swift */,
 				297B7F05255F56B600CDEB8D /* MorningController.swift */,
 				297B7F0A255F5F0A00CDEB8D /* EveningController.swift */,
+				296366B22577472D006AEFB1 /* AdditionalInfoController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -321,6 +327,8 @@
 				2925FF5E2553C36200E64E38 /* Extensions.swift in Sources */,
 				297B7F0B255F5F0A00CDEB8D /* EveningController.swift in Sources */,
 				29B8D94225536FC300A2D9AE /* ViewController.swift in Sources */,
+				296366B32577472D006AEFB1 /* AdditionalInfoController.swift in Sources */,
+				296366B725775805006AEFB1 /* V.swift in Sources */,
 				29B8D93E25536FC300A2D9AE /* AppDelegate.swift in Sources */,
 				2925FF5A2553B59500E64E38 /* Activity.swift in Sources */,
 				2925FF722556397E00E64E38 /* K.swift in Sources */,

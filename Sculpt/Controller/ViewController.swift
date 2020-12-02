@@ -64,10 +64,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 self.myTableView.reloadData()
             }))
         }
-        self.present(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion:{
+            alert.view.superview?.isUserInteractionEnabled = true
+            alert.view.superview?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.dismissOnTapOutside)))
+        })
         
         myTableView.reloadData()
-        
+    }
+    
+    @objc func dismissOnTapOutside(){
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    //SWIPE TO DELETE
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            activities.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
     }
     
     
@@ -206,13 +220,36 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(activities[indexPath.row].time) * 1.689
+    }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+    
+    
+    
+    
+    
+    //MARK: - ADDING ADDITIONAL INFO BY CLICKING THE ACTIVITIES
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        self.performSegue(withIdentifier: "additionalInfoSegue", sender: self)
         
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(activities[indexPath.row].time) * 2.4
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "additionalInfoSegue"){
+            if let indexPath = self.myTableView.indexPathForSelectedRow {
+                let displayVC = segue.destination as! AdditionalInfoController
+                displayVC.rowNum = indexPath.row
+            }
+        }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

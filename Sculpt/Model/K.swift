@@ -18,11 +18,11 @@ struct K {
     }
     
     struct exercise {
-        static let subDescriptions = ["walk", "lifting", "sports"]
+        static let subDescriptions = ["walk", "run", "lifting", "sports", "stretch"]
     }
     
     struct meal {
-        static let subDescriptions = ["alone", "friends", "working", "watching"]
+        static let subDescriptions = ["preparing", "alone", "friends", "working", "watching"]
     }
     
     struct personal {
@@ -34,7 +34,7 @@ struct K {
     }
     
     struct other {
-        static let subDescriptions = ["commuting", "sex", "nap", "shopping", "errands", "nothing"]
+        static let subDescriptions = ["commuting", "sex", "nap", "shopping", "errands", "nothing", "shower"]
     }
     
 }
