@@ -37,4 +37,6 @@ struct K {
         static let subDescriptions = ["commuting", "sex", "nap", "shopping", "errands", "nothing", "shower"]
     }
     
+    static let names = ["Ava", "Hadley", "Georgia", "Theo", "Kujans"]
+    
 }

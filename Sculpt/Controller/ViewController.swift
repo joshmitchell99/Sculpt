@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var myScrollView: UIScrollView!
     @IBOutlet weak var myContentView: UIView!
     
-    var activities: [Activity] = []
     let other = Other()
     
     
@@ -43,7 +42,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.dragDelegate = self
         myTableView.dropDelegate = self
         
-    }    
+        myTableView.reloadData()
+    }
     
     
     
@@ -60,7 +60,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         for subDes in activity.generateFilePath() { //K."\(activity)".subDescriptions
             alert.addAction(UIAlertAction(title: subDes, style: .default, handler: { (action) in
-                self.activities.append(Activity(description: activity, subDescription: subDes))
+                V.activities.append(Activity(description: activity, subDescription: subDes))
                 self.myTableView.reloadData()
             }))
         }
@@ -79,7 +79,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //SWIPE TO DELETE
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            activities.remove(at: indexPath.row)
+            V.activities.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
@@ -98,15 +98,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return activities.count
+        return V.activities.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! myCell
         
-        var activity = activities[indexPath.row]
+        let activity = V.activities[indexPath.row]
         
-        cell.textLabel!.text = activity.description + ": " + activity.subDescription + " for " + String(activity.time)
+        if activity.happiness != -1 {
+            cell.textLabel!.text = activity.description + ": " + activity.subDescription + " for " + String(activity.time) + "\n h" + String(activity.happiness) + " p" + String(activity.productivity) + " a" + String(activity.anxiety) + " e" + String(activity.energy) + " t" + String(activity.tiredness) + " " + activity.whoWith.description
+        } else {
+            cell.textLabel!.text = activity.description + ": " + activity.subDescription + " for " + String(activity.time) + "\n FILL THIS IN PLEASE!"
+        }
+        
         cell.backgroundColor = cell.getColor(activity.description)
         //cell.layer.borderWidth = 1
         //cell.layer.borderColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -130,9 +135,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let movedObject = self.activities[sourceIndexPath.row]
-        activities.remove(at: sourceIndexPath.row)
-        activities.insert(movedObject, at: destinationIndexPath.row)
+        let movedObject = V.activities[sourceIndexPath.row]
+        V.activities.remove(at: sourceIndexPath.row)
+        V.activities.insert(movedObject, at: destinationIndexPath.row)
     }
     
     func tableView(_ tableView: UITableView, itemsForBeginning session: UIDragSession, at indexPath: IndexPath) -> [UIDragItem] {
@@ -170,13 +175,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var startTime = Int(formatter.string(from: currentDateTime))! * 60
         
         
-        for activity in activities {
+        for activity in V.activities {
             activity.startTime = startTime.toDateString()
             activity.endTime = (startTime + activity.time).toDateString()
             startTime = startTime + activity.time
         }
         
-        other.addToFirestore(activities)
+        other.addToFirestore(V.activities)
         
         let alert = UIAlertController(title: "Data added!", message: "Cheers!", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Great!", style: .default, handler: { (action) in
@@ -184,7 +189,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }))
         self.present(alert, animated: true, completion: nil)
         
-        activities.removeAll()
         myTableView.reloadData()
     }
     
@@ -203,7 +207,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         let cell = (superview as? UITableViewCell)!
         let indexPath = myTableView.indexPath(for: cell)
-        activities[indexPath!.row].time += 5
+        V.activities[indexPath!.row].time += 5
         myTableView.reloadData()
     }
     
@@ -214,14 +218,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         let cell = (superview as? UITableViewCell)!
         let indexPath = myTableView.indexPath(for: cell)
-        if activities[indexPath!.row].time != 5 {
-            activities[indexPath!.row].time -= 5
+        if V.activities[indexPath!.row].time != 5 {
+            V.activities[indexPath!.row].time -= 5
         }
         myTableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(activities[indexPath.row].time) * 1.689
+        return CGFloat(V.activities[indexPath.row].time) * 1.689
     }
     
     
@@ -229,23 +233,31 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
-    //MARK: - ADDING ADDITIONAL INFO BY CLICKING THE ACTIVITIES
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+    
+    
+    //MARK: - ADDING ADDITIONAL INFO BY CLICKING THE ACTIVITIES and reloading data
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.performSegue(withIdentifier: "additionalInfoSegue", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if(segue.identifier == "additionalInfoSegue"){
+        if segue.identifier == "additionalInfoSegue" {
             if let indexPath = self.myTableView.indexPathForSelectedRow {
                 let displayVC = segue.destination as! AdditionalInfoController
                 displayVC.rowNum = indexPath.row
+                myTableView.deselectRow(at: indexPath, animated: true)
+                
+                displayVC.callbackResult = {
+                    self.myTableView.reloadData()
+                }
+                
             }
         }
     }
     
-    
-    
+    override func viewWillAppear(_ animated: Bool) {
+        myTableView.reloadData()
+    }
     
     
     

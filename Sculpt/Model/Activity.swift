@@ -25,4 +25,11 @@ class Activity {
     var startTime = ""
     var endTime = ""
     
+    var happiness = -1
+    var productivity = -1
+    var anxiety = -1
+    var energy = -1
+    var tiredness = -1
+    var whoWith = [String]()
+    
 }
