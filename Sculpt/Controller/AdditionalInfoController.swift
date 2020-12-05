@@ -13,7 +13,7 @@ class AdditionalInfoController: UIViewController {
         super.viewDidLoad()
     }
     
-    var rowNum = -1
+    var rowNum = -1 
     var callbackResult: (() -> ())?
     
     @IBOutlet weak var happinessLabel: UILabel!
