@@ -17,65 +17,62 @@ class MorningController: UIViewController {
     
     var other = Other()
     
-    @IBOutlet weak var howWasYourSleep: UILabel!
-    @IBOutlet weak var howLongDidYouSleep: UILabel!
-    @IBOutlet weak var whatTimeDidYouWakeUp: UILabel!
-    @IBOutlet weak var howAreYouFeeling: UILabel!
-    @IBOutlet weak var howBusyIsYourDay: UILabel!
+    @IBOutlet weak var sleepQuality: UILabel!
+    @IBOutlet weak var sleepLength: UILabel!
+    @IBOutlet weak var wakeTime: UILabel!
+    @IBOutlet weak var initialFeeling: UILabel!
+    @IBOutlet weak var businessOfDay: UILabel!
     
-    var howWasYourSleepValue = 0
-    var howLongDidYouSleepValue = 0
-    var whatTimeDidYouWakeUpValue = 0
-    var howAreYouFeelingValue = 0
-    var howBusyIsYourDayValue = 0
+    var sleepQualityVal = 0
+    var sleepLengthVal = 0
+    var wakeTimeVal = 0
+    var initialFeelingVal = 0
+    var businessOfDayVal = 0
     
-    @IBAction func howWasYourSleepPressed(_ sender: UIButton) {
-        howWasYourSleepValue += 1
-        if howWasYourSleepValue == 11 {
-            howWasYourSleepValue = 1
+    @IBAction func sleepQualityPressed(_ sender: UIButton) {
+        sleepQualityVal += 1
+        if sleepQualityVal == 11 {
+            sleepQualityVal = 1
         }
-        howWasYourSleep.text = "How was your sleep? " + String(howWasYourSleepValue)
+        sleepQuality.text = "How was your sleep? " + String(sleepQualityVal)
     }
     
-    @IBAction func howLongDidYouSleepPressed(_ sender: UIButton) {
-        howLongDidYouSleepValue += 1
-        if howLongDidYouSleepValue == 11 {
-            howLongDidYouSleepValue = 1
+    @IBAction func sleepLengthPressed(_ sender: UIButton) {
+        sleepLengthVal += 1
+        if sleepLengthVal == 11 {
+            sleepLengthVal = 1
         }
-        howLongDidYouSleep.text = "How long did you sleep? " + String(howLongDidYouSleepValue)
+        sleepLength.text = "How long did you sleep? " + String(sleepLengthVal)
     }
     
-    @IBAction func whatTimeDidYouWakeUpPressed(_ sender: UIButton) {
-        whatTimeDidYouWakeUpValue += 1
-        if whatTimeDidYouWakeUpValue == 11 {
-            whatTimeDidYouWakeUpValue = 1
+    @IBAction func wakeTimePressed(_ sender: UIButton) {
+        wakeTimeVal += 1
+        if wakeTimeVal == 11 {
+            wakeTimeVal = 1
         }
-        whatTimeDidYouWakeUp.text = "What time did you wake up? " + String(whatTimeDidYouWakeUpValue)
+        wakeTime.text = "What time did you wake up? " + String(wakeTimeVal)
     }
     
-    @IBAction func howAreYouFeelingPressed(_ sender: UIButton) {
-        howAreYouFeelingValue += 1
-        if howAreYouFeelingValue == 11 {
-            howAreYouFeelingValue = 1
+    @IBAction func initialFeelingPressed(_ sender: UIButton) {
+        initialFeelingVal += 1
+        if initialFeelingVal == 11 {
+            initialFeelingVal = 1
         }
-        howAreYouFeeling.text = "How are you feeling? " + String(howAreYouFeelingValue)
+        initialFeeling.text = "How are you feeling? " + String(initialFeelingVal)
     }
     
-    @IBAction func howBusyIsYourDayPressed(_ sender: UIButton) {
-        howBusyIsYourDayValue += 1
-        if howBusyIsYourDayValue == 11 {
-            howBusyIsYourDayValue = 1
+    @IBAction func businessOfDayPressed(_ sender: UIButton) {
+        businessOfDayVal += 1
+        if businessOfDayVal == 11 {
+            businessOfDayVal = 1
         }
-        howBusyIsYourDay.text = "How busy is your day? " + String(howBusyIsYourDayValue)
+        businessOfDay.text = "How busy is your day? " + String(businessOfDayVal)
     }
     
     
     @IBAction func submitPressed(_ sender: UIButton) {
-        other.addMorningToFirestore(howWasYourSleep.text!)
-        other.addMorningToFirestore(howLongDidYouSleep.text!)
-        other.addMorningToFirestore(whatTimeDidYouWakeUp.text!)
-        other.addMorningToFirestore(howAreYouFeeling.text!)
-        other.addMorningToFirestore(howBusyIsYourDay.text!)
+        let stringToSave = "sleepQuality" + String(sleepQualityVal) + "sleepLength" + String(sleepLengthVal) + "wakeTime" + String(wakeTimeVal) + "initialFeeling" + String(initialFeelingVal) + "businessOfDay" + String(businessOfDayVal)
+        other.addMorningToFirestore(stringToSave)
     }
     
     

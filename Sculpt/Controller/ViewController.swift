@@ -21,7 +21,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var myScrollView: UIScrollView!
     @IBOutlet weak var myContentView: UIView!
     
-    let other = Other()
+    var other = Other()
     
     
     
@@ -43,6 +43,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         myTableView.dropDelegate = self
         
         myTableView.reloadData()
+        
+        other.loadItems()
     }
     
     
@@ -102,6 +104,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        other.saveItems()
         let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! myCell
         
         let activity = V.activities[indexPath.row]
@@ -176,6 +179,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
         
         for activity in V.activities {
+            activity.date = other.getDate()
             activity.startTime = startTime.toDateString()
             activity.endTime = (startTime + activity.time).toDateString()
             startTime = startTime + activity.time
@@ -258,6 +262,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     override func viewWillAppear(_ animated: Bool) {
         myTableView.reloadData()
     }
+    
+    
+    
+
     
     
     

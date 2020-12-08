@@ -18,64 +18,61 @@ class EveningController: UIViewController {
     var other = Other()
     
     @IBOutlet weak var howWasYourDay: UILabel!
-    @IBOutlet weak var howMuchWorkDidYouDo: UILabel!
-    @IBOutlet weak var whatTimeAreYouSleeping: UILabel!
-    @IBOutlet weak var howFullWasYourDay: UILabel!
-    @IBOutlet weak var howWarmIsTheRoom: UILabel!
+    @IBOutlet weak var howMuchWork: UILabel!
+    @IBOutlet weak var bedTime: UILabel!
+    @IBOutlet weak var dayFullness: UILabel!
+    @IBOutlet weak var roomWarmth: UILabel!
     
-    var howWasYourDayValue = 0
-    var howMuchWorkDidYouDoValue = 0
-    var whatTimeAreYouSleepingValue = 0
-    var howFullWasYourDayValue = 0
-    var howWarmIsTheRoomValue = 0
+    var howWasYourDayVal = 0
+    var howMuchWorkVal = 0
+    var bedTimeVal = 0
+    var dayFullnessVal = 0
+    var roomWarmthVal = 0
     
     @IBAction func howWasYourDayPressed(_ sender: UIButton) {
-        howWasYourDayValue += 1
-        if howWasYourDayValue == 11 {
-            howWasYourDayValue = 1
+        howWasYourDayVal += 1
+        if howWasYourDayVal == 11 {
+            howWasYourDayVal = 1
         }
-        howWasYourDay.text = "How was your day? " + String(howWasYourDayValue)
+        howWasYourDay.text = "How was your day? " + String(howWasYourDayVal)
     }
     
-    @IBAction func howMuchWorkDidYouDoPressed(_ sender: UIButton) {
-        howMuchWorkDidYouDoValue += 1
-        if howMuchWorkDidYouDoValue == 11 {
-            howMuchWorkDidYouDoValue = 1
+    @IBAction func howMuchWorkPressed(_ sender: UIButton) {
+        howMuchWorkVal += 1
+        if howMuchWorkVal == 11 {
+            howMuchWorkVal = 1
         }
-        howMuchWorkDidYouDo.text = "How much work did you do? " + String(howMuchWorkDidYouDoValue)
+        howMuchWork.text = "How much work did you do? " + String(howMuchWorkVal)
     }
     
-    @IBAction func whatTimeAreYouSleepingPressed(_ sender: UIButton) {
-        whatTimeAreYouSleepingValue += 1
-        if whatTimeAreYouSleepingValue == 11 {
-            whatTimeAreYouSleepingValue = 1
+    @IBAction func bedTimePressed(_ sender: UIButton) {
+        bedTimeVal += 1
+        if bedTimeVal == 11 {
+            bedTimeVal = 1
         }
-        whatTimeAreYouSleeping.text = "What time are you sleeping? " + String(whatTimeAreYouSleepingValue)
+        bedTime.text = "What time are you sleeping? " + String(bedTimeVal)
     }
     
-    @IBAction func howFullWasYourDayPressed(_ sender: UIButton) {
-        howFullWasYourDayValue += 1
-        if howFullWasYourDayValue == 11 {
-            howFullWasYourDayValue = 1
+    @IBAction func dayFullnessPressed(_ sender: UIButton) {
+        dayFullnessVal += 1
+        if dayFullnessVal == 11 {
+            dayFullnessVal = 1
         }
-        howFullWasYourDay.text = "How full was your day? " + String(howFullWasYourDayValue)
+        dayFullness.text = "How full was your day? " + String(dayFullnessVal)
     }
     
-    @IBAction func howWarmIsTheRoomPressed(_ sender: UIButton) {
-        howWarmIsTheRoomValue += 1
-        if howWarmIsTheRoomValue == 11 {
-            howWarmIsTheRoomValue = 1
+    @IBAction func roomWarmthPressed(_ sender: UIButton) {
+        roomWarmthVal += 1
+        if roomWarmthVal == 11 {
+            roomWarmthVal = 1
         }
-        howWarmIsTheRoom.text = "How warm is the room? " + String(howWarmIsTheRoomValue)
+        roomWarmth.text = "How warm is the room? " + String(roomWarmthVal)
     }
     
     
     @IBAction func submitPressed(_ sender: UIButton) {
-        other.addEveningToFirestore(howWasYourDay.text!)
-        other.addEveningToFirestore(howMuchWorkDidYouDo.text!)
-        other.addEveningToFirestore(whatTimeAreYouSleeping.text!)
-        other.addEveningToFirestore(howFullWasYourDay.text!)
-        other.addEveningToFirestore(howWarmIsTheRoom.text!)
+        let stringToSave = "howWasYourDay" + String(howWasYourDayVal) + "howMuchWork" + String(howMuchWorkVal) + "bedTime" + String(bedTimeVal) + "dayFullness" + String(dayFullnessVal) + "roomWarmth" + String(roomWarmthVal)
+        other.addEveningToFirestore(stringToSave)
     }
 
 

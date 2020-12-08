@@ -7,14 +7,11 @@
 
 import Foundation
 
-class Activity {
-    
-    let other = Other()
-    
+class Activity: Codable {
+        
     init(description: String, subDescription: String) {
         self.description = description
         self.subDescription = subDescription
-        self.date = other.getDate()
     }
     
     var description = ""
