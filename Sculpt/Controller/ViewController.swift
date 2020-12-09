@@ -173,13 +173,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //MARK: - SUBMIT BUTTON
     @IBAction func submitPressed(_ sender: UIButton) {
         
-        let timeInterval: TimeInterval = -14400 // sets a time interval 4 hours before now.
-        let currentDateTime = Date(timeIntervalSinceNow: timeInterval)
-        let formatter = DateFormatter()
-        formatter.isLenient = true
-        formatter.dateFormat = "HH"
-        var startTime = Int(formatter.string(from: currentDateTime))! * 60
-        
+        var startTime = 0
         
         for activity in V.activities {
             activity.date = other.getDate()
