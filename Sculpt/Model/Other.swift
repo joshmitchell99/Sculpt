@@ -68,7 +68,7 @@ struct Other {
     func addToFirestore(_ activities: [Activity]) {
         print("Activities to be passed in: ", activities)
         for activity in activities {
-            let dataString = activity.description + "," + activity.subDescription + "," + activity.date + "," + String(activity.time) + "," + String(activity.startTime) + "," + String(activity.endTime)
+            let dataString = activity.description + "," + activity.subDescription + "," + activity.date + "," + String(activity.time) + "," + String(activity.startTime) + "," + String(activity.endTime) + " h" + String(activity.happiness) + " p" + String(activity.productivity) + " a" + String(activity.anxiety) + " e" + String(activity.energy) + " t" + String(activity.tiredness) + " " + activity.whoWith.description
             let nameString = activity.description + String(activity.startTime)
             
             db.collection("Users").document("Josh").collection(self.getDate()).document("todaysLog").setData([
